@@ -6,7 +6,7 @@ packages:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.4"
+    version: "0.27.6"
   angular2:
     description:
       name: angular2
@@ -31,6 +31,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.2+9"
+  bot:
+    description:
+      name: bot
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.28.0"
   browser:
     description:
       name: browser
@@ -60,7 +66,7 @@ packages:
       name: code_transformers
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2+2"
+    version: "0.4.2+3"
   collection:
     description:
       name: collection
@@ -132,7 +138,7 @@ packages:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.0"
+    version: "0.13.1"
   isolate:
     description:
       name: isolate
@@ -198,13 +204,19 @@ packages:
       name: protobuf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.2"
+    version: "0.5.3"
+  sass:
+    description:
+      name: sass
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.2"
   shelf:
     description:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.5+2"
+    version: "0.6.5+3"
   shelf_static:
     description:
       name: shelf_static
@@ -235,6 +247,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.6"
+  stagexl:
+    description:
+      name: stagexl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.10+2"
   stream_channel:
     description:
       name: stream_channel
@@ -277,10 +295,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.3"
+  xml:
+    description:
+      name: xml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.4.3"
   yaml:
     description:
       name: yaml
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.10"
-sdk: ">=1.17.0-dev.6.2 <2.0.0"
+sdk: ">=1.17.0 <2.0.0"

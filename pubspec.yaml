@@ -4,10 +4,14 @@ version: 0.0.1
 environment:
   sdk: '>=1.13.0 <2.0.0'
 dependencies:
+  sass: any
+  bot: '^0.28.0'
+  stagexl: '^0.13.1'
   angular2: 2.0.0-beta.20
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
 transformers:
+- sass
 - angular2:
     platform_directives:
     - 'package:angular2/common.dart#COMMON_DIRECTIVES'
