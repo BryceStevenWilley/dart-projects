@@ -13,6 +13,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0-beta.20"
+  archive:
+    description:
+      name: archive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.25"
   args:
     description:
       name: args
@@ -31,6 +37,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.2+9"
+  bignum:
+    description:
+      name: bignum
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   bot:
     description:
       name: bot
@@ -85,6 +97,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  cryptoutils:
+    description:
+      name: cryptoutils
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   csslib:
     description:
       name: csslib
@@ -133,6 +151,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  image:
+    description:
+      name: image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.26"
   intl:
     description:
       name: intl
@@ -157,6 +181,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.11.3+1"
+  matcher:
+    description:
+      name: matcher
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.12.0+2"
   mime:
     description:
       name: mime
@@ -205,6 +235,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.3"
+  quiver:
+    description:
+      name: quiver
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.21.4"
   sass:
     description:
       name: sass
@@ -229,6 +265,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.6+2"
+  source_gen:
+    description:
+      name: source_gen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.8"
   source_maps:
     description:
       name: source_maps
@@ -307,4 +349,11 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.10"
-sdk: ">=1.17.0 <2.0.0"
+  zengen:
+    description:
+      name: zengen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.2"
+sdks:
+  dart: ">=1.17.0 <2.0.0"

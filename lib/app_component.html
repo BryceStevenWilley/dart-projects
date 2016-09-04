@@ -1,9 +1,10 @@
-<site-header></site-header>
 
-[Site still under construction]
+<h1>[title of site]</h1>
 
-<p>Hi, I'm Bryce, and I'm an Undergraduate/Master's student at Rice University.
-
-<p>Read my <a href="Bryce-Willey-Resume.pdf">resume</a> if you're interested in my
-professional life. Otherwise, stick around and look at content that I've made/ am
-making that I think is cool.
+<nav>
+    <a [routerLink]="['Home']">Home</a>
+    <!-- a [routerLink]="['About']">Home</a -->
+    <!-- a [routerLink]="['Projects']">Home</a -->
+    <a [routerLink]="['WebApps']">Web Apps</a>
+</nav>
+<router-outlet></router-outlet>

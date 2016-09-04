@@ -4,6 +4,8 @@ version: 0.0.1
 environment:
   sdk: '>=1.13.0 <2.0.0'
 dependencies:
+  cryptoutils:
+  image:
   sass: any
   bot: '^0.28.0'
   stagexl: '^0.13.1'
