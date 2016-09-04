@@ -1,0 +1,35 @@
+
+<h2>Random Circles</h2>
+
+<div id="right-here"></div>
+
+<!-- Note: go back to using input type="number" when angular.dart/issues/1033 is solved. -->
+<div> How many circles: <input type="text" [(ngModel)]="strcc"> </div>
+<div>
+    How much should red vary:
+    min: <input type="range" min="0" max="255" value="0" (input)="strrmin=$event.target.value">
+    max: <input type="range" min="0" max="255" value="255" (input)="strrmax=$event.target.value">
+</div>
+<div>
+    How much should blue vary:
+    min: <input type="range" min="0" max="255" value="0" (input)="strbmin=$event.target.value">
+    max: <input type="range" min="0" max="255" value="255" (input)="strbmax=$event.target.value">
+</div>
+<div>
+    How much should green vary:
+    min: <input type="range" min="0" max="255" value="0" (input)="strgmin=$event.target.value">
+    max: <input type="range" min="0" max="255" value="255" (input)="strgmax=$event.target.value">
+</div>
+<div>
+    How much should alpha vary:
+    min: <input type="range" min="0" max="255" value="0" (input)="stramin=$event.target.value">
+    max: <input type="range" min="0" max="255" value="255" (input)="stramax=$event.target.value">
+</div>
+
+
+<button (click)="addCircle()">Draw Circle</button>
+
+<button (click)="download()">Download the picture</button>
+<br/>
+
+<canvas id="circleDrawer" width="1600" height="1200"></canvas>
