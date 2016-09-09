@@ -7,8 +7,8 @@
 <div> How many circles: <input type="text" [(ngModel)]="strcc"> </div>
 <div>
     How much should red vary:
-    min: <input type="range" min="0" max="255" value="0" (input)="strrmin=$event.target.value">
-    max: <input type="range" min="0" max="255" value="255" (input)="strrmax=$event.target.value">
+    min: <input type="range" min="0" max="255" value="0" (input)="rMin=parseInt($event.target.value, rMin)">
+    max: <input type="range" min="0" max="255" value="255" (input)="rMax=$event.target.value">
 </div>
 <div>
     How much should blue vary:

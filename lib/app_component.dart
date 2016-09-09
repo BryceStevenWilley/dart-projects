@@ -2,6 +2,7 @@ import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
 import 'package:personal_website/home_component.dart';
 import 'package:personal_website/circle_drawer_component.dart';
+import 'package:personal_website/logo_component.dart';
 
 @Component(
     selector: 'my-app',
@@ -15,9 +16,14 @@ import 'package:personal_website/circle_drawer_component.dart';
       useAsDefault: true
   ),
   const Route(
-      path: '/web-apps',
-      name: "WebApps",
+      path: '/circles',
+      name: 'Circles',
       component: CircleDrawerComponent
+  ),
+  const Route(
+      path: '/logo',
+      name: 'Logo',
+      component: LogoComponent
   )
 ])
 class AppComponent {}

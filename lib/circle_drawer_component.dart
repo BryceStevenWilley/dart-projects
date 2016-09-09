@@ -38,11 +38,12 @@ class CircleDrawerComponent implements OnInit {
     addCircle();
   }
 
-  get parser => int.parse;
+  int parseInt(String numStr, int backUp) =>
+      int.parse(numStr, onError: (src) => backUp);
 
   int _randomNum(int low, int high) => random.nextInt(high - low) + low;
 
-  int _argb(int alpha, int red, int blue, int green) =>
+  int _argb(int alpha, int red, int green, int blue) =>
       (alpha % 0x100) * 0x1000000 + (red % 0x100) * 0x10000
           + (green % 0x100) * 0x100 + blue % 0x100;
 
