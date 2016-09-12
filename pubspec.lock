@@ -90,7 +90,7 @@ packages:
       name: convert
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "2.0.1"
   crypto:
     description:
       name: crypto
@@ -294,7 +294,7 @@ packages:
       name: stagexl
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.7"
+    version: "0.13.10+2"
   stream_channel:
     description:
       name: stream_channel
@@ -355,4 +355,4 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2"
-sdk: ">=1.16.0 <2.0.0"
+sdk: ">=1.17.0 <2.0.0"

@@ -7,6 +7,7 @@ import 'package:personal_website/logo_component.dart';
 @Component(
     selector: 'my-app',
     templateUrl: 'app_component.html',
+    styleUrls: const ['app_component.css'],
     directives: const [ROUTER_DIRECTIVES])
 @RouteConfig(const [
   const Route(

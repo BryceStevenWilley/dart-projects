@@ -1,0 +1,33 @@
+#icontainer {
+  //height:100%;
+  //border-collapse:collapse;
+  //display : table;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#container {
+  flex: 1
+}
+
+/*footer {
+  display : table-row;
+  vertical-align : bottom;
+  height : 1px;
+} */
+
+.spacer {
+  flex: 1
+}
+
+
+/*.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+} */

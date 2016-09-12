@@ -1,18 +1,63 @@
 <h2>LOGO: Turtle Graphics</h2>
 
+<p>
 I'm currently taking COMP 360 at Rice, and the first part of the
 class is focused on Turtle Graphics, a way of generating 2D shapes
 and fractals. <!-- Add link here! -->
+</p>
 
+<p>
 I always liked fractals in middle and high school, I'd doodle Seprenski
 Gaskets and my papers and always try to draw super comple dragon curves.
 I also really like the simplicity of the turtle, so I decided to make
 a demo using StageXL and Dart! Try out the demo below.
+</p>
 
 <br/>
-<input type="text" [(ngModel)]="strsides"><br/>
-<input type="text" [(ngModel)]="strlen"><br/>
+
+What do you want to draw?
+<select [(ngModel)]="selectedFunction">
+    <option *ngFor="let f of functions.keys"
+            [ngValue]="f">{{functions[f]}}</option>
+</select>
+
+
+<div *ngIf="selectedFunction == mach.drawPolygon
+        || selectedFunction == mach.drawStar">
+    Sides: <input type="text" [(ngModel)]="strSides"><br/>
+    Length: <input type="text" [(ngModel)]="strLength"><br/>
+</div>
+
+<div *ngIf="selectedFunction == mach.drawCCurve
+        || selectedFunction == mach.drawDragonX">
+    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
+    Length: <input type="text" [(ngModel)]="strLength"><br/>
+    Angle: <input type="text" [(ngModel)]="strAngle"><br/>
+</div>
+
+<div *ngIf="selectedFunction == mach.drawKochCurve">
+    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
+    Length: <input type="text" [(ngModel)]="strLength"><br/>
+</div>
+
+<div *ngIf="selectedFunction == mach.drawBumpCurve
+        || selectedFunction == mach.drawBumpSnowflake">
+    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
+    Sides: <input type="text" [(ngModel)]="strSides"><br/>
+    Length: <input type="text" [(ngModel)]="strLength"><br/>
+</div>
+
+<div *ngIf="selectedFunction == mach.drawPolyGasket">
+    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
+    Sides: <input type="text" [(ngModel)]="strSides"><br/>
+    Length: <input type="text" [(ngModel)]="strLength"><br/>
+    Scale: <input type="text" [(ngModel)]="strScale"><br/>
+</div>
 
 <button (click)="drawFromString()">Draw!</button>
 
-<canvas id="logoThing" width="800" height="600"></canvas>
+<br/>
+
+<div>
+  <canvas id="logoThing" width="800" height="600"></canvas>
+</div>

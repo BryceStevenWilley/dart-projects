@@ -1,11 +1,17 @@
-
+<div id="container">
 <h1>[title of site]</h1>
+    <nav>
+        <a [routerLink]="['Home']">Home</a>
+        <!-- a [routerLink]="['About']">Home</a -->
+        <!-- a [routerLink]="['Projects']">Home</a -->
+        <a [routerLink]="['Circles']">Web App - Circles</a>
+        <a [routerLink]="['Logo']">Web App - Turtle Drawings</a>
+    </nav>
+    <router-outlet></router-outlet>
 
-<nav>
-    <a [routerLink]="['Home']">Home</a>
-    <!-- a [routerLink]="['About']">Home</a -->
-    <!-- a [routerLink]="['Projects']">Home</a -->
-    <a [routerLink]="['Circles']">Web App - Circles</a>
-    <a [routerLink]="['Logo']">Web App - Turtle Drawings</a>
-</nav>
-<router-outlet></router-outlet>
+    <div class="spacer"></div>
+</div>
+    <footer>
+        <p>Copyright Bryce Willey, 2016. See the source on
+            <a href="https://github.com/BrownRiceRice/personal-website">Github</a>!</p>
+    </footer>
