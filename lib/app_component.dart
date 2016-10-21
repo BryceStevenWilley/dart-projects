@@ -9,7 +9,8 @@ import 'package:personal_website/oculus_hack_component.dart';
     selector: 'my-app',
     templateUrl: 'app_component.html',
     styleUrls: const ['app_component.css'],
-    directives: const [ROUTER_DIRECTIVES])
+    directives: const [ROUTER_DIRECTIVES],
+    providers: const [ROUTER_PROVIDERS])
 @RouteConfig(const [
   const Route(
       path: '/home',
@@ -33,5 +34,8 @@ import 'package:personal_website/oculus_hack_component.dart';
       component: OculusHackComponent
   ),
 ])
-class AppComponent {}
+class AppComponent {
+  Router router;
+  AppComponent(this.router);
+}
 

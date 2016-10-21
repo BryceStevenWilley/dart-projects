@@ -1,21 +1,23 @@
 <div id="container">
-<h1>[title of site]</h1>
-    <nav>
-        <a [routerLink]="['Home']">Home</a>
-        <div class="secondary-nav">
-            Projects
-            <a [routerLink]="['Circles']">Web App - Circles</a>
-            <a [routerLink]="['Logo']">Web App - Turtle Drawings</a>
-            <a [routerLink]="['OculusHackRice']">Oculus Rift Game</a>
-        </div>
-        <!-- a [routerLink]="['About']">Home</a -->
-        <!-- a [routerLink]="['Projects']">Home</a -->
-    </nav>
-    <router-outlet></router-outlet>
+    <div id="header">
+        <h1>[title of site]</h1>
+        <nav>
+            <a [routerLink]="['Home']" [class.active]="router.isRouteActive(router.generate(['Home']))">Home</a>
+            <a [routerLink]="['Circles']" [class.active]="router.isRouteActive(router.generate(['Circles']))">
+                Web App - Circles</a>
+            <a [routerLink]="['Logo']" [class.active]="router.isRouteActive(router.generate(['Logo']))">
+                Web App - Turtle Drawings</a>
+            <a [routerLink]="['OculusHackRice']" [class.active]="router.isRouteActive(router.generate(['OculusHackRice']))">
+                Oculus Rift Game</a>
+        </nav>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
 
     <div class="spacer"></div>
 </div>
-    <footer>
-        <p>Copyright Bryce Willey, 2016. See the source on
-            <a href="https://github.com/BrownRiceRice/personal-website">Github</a>!</p>
-    </footer>
+<footer>
+    <p>Copyright Bryce Willey, 2016. See the source on
+        <a href="https://github.com/BrownRiceRice/personal-website">Github</a>!</p>
+</footer>

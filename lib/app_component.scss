@@ -21,6 +21,47 @@
   flex: 1
 }
 
+#header {
+  background-color: navy;
+  color: white;
+
+  h1 {
+    margin: 0;
+    padding: 10px;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+  }
+  a {
+    padding: 8px 16px;
+    flex-grow: 1;
+    color: white;
+    text-decoration: none; // get rid of normal hyperlink stuff.
+  }
+
+  .active {
+    background-color: grey;
+    color: white;
+  }
+
+  a:hover {
+    color: navy;
+    background-color: white;
+  }
+}
+
+.content {
+  padding: 20px;
+}
+
+footer {
+  background-color: navy;
+  color: white;
+  a {
+    color: white;
+  }
+}
 
 /*.footer {
   position: absolute;
