@@ -227,6 +227,21 @@ class TurtleMachine {
     }
   }
 
+  void drawDragon(int depth, num length, num angle) {
+    if (depth <= 0) {
+      forward(length);
+    } else {
+      var hypotenuse = 1 / (2 * cos(angle));
+      scale(hypotenuse);
+      turn(angle);
+      drawDragon(depth - 1, length, angle.abs());
+      turn(-2 * angle);
+      drawDragon(depth - 1, length, -angle.abs());
+      turn(angle);
+      scale(1 / hypotenuse);
+    }
+  }
+
 
   void drawCCurve(int depth, num length, num angle) {
     if (depth <= 0) {

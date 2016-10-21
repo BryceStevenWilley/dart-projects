@@ -29,7 +29,8 @@ What do you want to draw?
 </div>
 
 <div *ngIf="selectedFunction == mach.drawCCurve
-        || selectedFunction == mach.drawDragonX">
+        || selectedFunction == mach.drawDragonX
+        || selectedFunction == mach.drawDragon">
     Depth: <input type="text" [(ngModel)]="strDepth"><br/>
     Length: <input type="text" [(ngModel)]="strLength"><br/>
     Angle: <input type="text" [(ngModel)]="strAngle"><br/>

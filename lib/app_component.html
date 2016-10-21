@@ -2,10 +2,14 @@
 <h1>[title of site]</h1>
     <nav>
         <a [routerLink]="['Home']">Home</a>
+        <div class="secondary-nav">
+            Projects
+            <a [routerLink]="['Circles']">Web App - Circles</a>
+            <a [routerLink]="['Logo']">Web App - Turtle Drawings</a>
+            <a [routerLink]="['OculusHackRice']">Oculus Rift Game</a>
+        </div>
         <!-- a [routerLink]="['About']">Home</a -->
         <!-- a [routerLink]="['Projects']">Home</a -->
-        <a [routerLink]="['Circles']">Web App - Circles</a>
-        <a [routerLink]="['Logo']">Web App - Turtle Drawings</a>
     </nav>
     <router-outlet></router-outlet>
 

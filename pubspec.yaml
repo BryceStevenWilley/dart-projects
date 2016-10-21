@@ -8,12 +8,14 @@ dependencies:
   image:
   sass: any
   bot: '^0.28.0'
-  stagexl: '^0.13.1'
+  stagexl: '^0.13.3'
   angular2: 2.0.0-beta.20
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.1
+  #material2_dart: ^0.1.0
 transformers:
-- sass
+- sass:
+    style: compact
 - angular2:
     platform_directives:
     - 'package:angular2/common.dart#COMMON_DIRECTIVES'

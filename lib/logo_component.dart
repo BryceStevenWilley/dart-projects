@@ -36,6 +36,7 @@ class LogoComponent implements OnInit {
       mach.drawPolyGasket: 'Poly-gasket',
       mach.drawCCurve: 'C-Curve',
       mach.drawDragonX: 'Dragon Curve',
+      mach.drawDragon: 'Prototype Dragon',
     };
     selectedFunction = mach.drawPolygon;
   }
@@ -50,7 +51,8 @@ class LogoComponent implements OnInit {
   void drawFromString() {
     _resetCanvas();
     if (selectedFunction == mach.drawCCurve
-        || selectedFunction == mach.drawDragonX) {
+        || selectedFunction == mach.drawDragonX
+        || selectedFunction == mach.drawDragon) {
       selectedFunction(int.parse(strDepth, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0),
           num.parse(strAngle, (_) => PI / 4));
