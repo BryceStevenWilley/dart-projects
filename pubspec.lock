@@ -114,7 +114,7 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.11"
+    version: "0.2.11+1"
   dart_to_js_script_rewriter:
     description:
       name: dart_to_js_script_rewriter
@@ -144,7 +144,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.0"
+    version: "0.12.2+2"
   http_parser:
     description:
       name: http_parser
@@ -246,7 +246,7 @@ packages:
       name: sass
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2"
+    version: "0.4.2+4"
   shelf:
     description:
       name: shelf
@@ -282,7 +282,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.3"
+    version: "1.2.4"
   stack_trace:
     description:
       name: stack_trace
@@ -355,5 +355,4 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2"
-sdks:
-  dart: ">=1.16.0 <2.0.0"
+sdk: ">=1.16.0 <2.0.0"

@@ -38,4 +38,3 @@ class AppComponent {
   Router router;
   AppComponent(this.router);
 }
-
