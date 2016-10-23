@@ -1,9 +1,9 @@
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
-import 'package:personal_website/home_component.dart';
-import 'package:personal_website/circle_drawer_component.dart';
-import 'package:personal_website/logo_component.dart';
-import 'package:personal_website/oculus_hack_component.dart';
+import 'package:personal_website/Home/home_component.dart';
+import 'package:personal_website/CircleDrawer/circle_drawer_component.dart';
+import 'package:personal_website/Logo/logo_component.dart';
+import 'package:personal_website/OculusHack/oculus_hack_component.dart';
 
 @Component(
     selector: 'my-app',
