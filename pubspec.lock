@@ -361,5 +361,4 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.2"
-sdks:
-  dart: ">=1.16.0 <2.0.0"
+sdk: ">=1.16.0 <2.0.0"
