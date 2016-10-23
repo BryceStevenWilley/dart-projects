@@ -4,6 +4,7 @@ import 'package:personal_website/Home/home_component.dart';
 import 'package:personal_website/CircleDrawer/circle_drawer_component.dart';
 import 'package:personal_website/Logo/logo_component.dart';
 import 'package:personal_website/OculusHack/oculus_hack_component.dart';
+import 'package:personal_website/Webgl/webgl_component.dart';
 
 @Component(
     selector: 'my-app',
@@ -32,6 +33,11 @@ import 'package:personal_website/OculusHack/oculus_hack_component.dart';
       path: '/ovr-hr',
       name: 'OculusHackRice',
       component: OculusHackComponent
+  ),
+  const Route(
+      path: '/webgl',
+      name: 'WebGl',
+      component: WebGlComponent
   ),
 ])
 class AppComponent {
