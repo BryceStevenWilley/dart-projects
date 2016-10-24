@@ -6,10 +6,7 @@ import 'dart:web_gl';
 import 'dart:math';
 import 'package:personal_website/Webgl/GlProgram.dart';
 
-@Component(
-    selector: 'webgl-component',
-    templateUrl: 'webgl_component.html'
-)
+@Component(selector: 'webgl-component', templateUrl: 'webgl_component.html')
 class WebGlComponent implements OnInit {
   CanvasElement canvas;
   RenderingContext rctx;
@@ -37,7 +34,7 @@ class WebGlComponent implements OnInit {
     // Set up the webgl stuff (tutorial from https://github.com/jtmcdole/dart-webgl/, lesson1.dart)
     program = new GlProgram(
         rctx,
-    // Vec4 in this frag shader is the rgb color vector
+        // Vec4 in this frag shader is the rgb color vector
         '''
           precision mediump float;
 
@@ -69,48 +66,53 @@ class WebGlComponent implements OnInit {
     // Allocate the buffers we need to draw a triangle and a box.
     triangleVertexPositionBuffer = rctx.createBuffer();
     rctx.bindBuffer(ARRAY_BUFFER, triangleVertexPositionBuffer);
-    rctx.bufferData(ARRAY_BUFFER, new Float32List.fromList([
-      0.0, 1.0, 0.0,
-      -1.0, -1.0, 0.0,
-      1.0, -1.0, 0.0
-    ]), STATIC_DRAW);
+    rctx.bufferData(
+        ARRAY_BUFFER,
+        new Float32List.fromList(
+            [0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]),
+        STATIC_DRAW);
 
     triangleVertexColorBuffer = rctx.createBuffer();
     rctx.bindBuffer(ARRAY_BUFFER, triangleVertexColorBuffer);
-    rctx.bufferData(ARRAY_BUFFER, new Float32List.fromList([
-      1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0
-    ]), STATIC_DRAW);
+    rctx.bufferData(
+        ARRAY_BUFFER,
+        new Float32List.fromList(
+            [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]),
+        STATIC_DRAW);
 
     squareVertexPositionBuffer = rctx.createBuffer();
     // Now, the target of calls with ARRAY_BUFFER are the square buffer, not
     // the triangle one above.
     rctx.bindBuffer(ARRAY_BUFFER, squareVertexPositionBuffer);
-    rctx.bufferData(ARRAY_BUFFER, new Float32List.fromList([
-      1.0, 1.0, 0.0,
-      -1.0, 1.0, 0.0,
-      1.0, -1.0, 0.0,
-      -1.0, -1.0, 0.0]), STATIC_DRAW);
+    rctx.bufferData(
+        ARRAY_BUFFER,
+        new Float32List.fromList(
+            [1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]),
+        STATIC_DRAW);
 
     squareVertexColorBuffer = rctx.createBuffer();
     rctx.bindBuffer(ARRAY_BUFFER, squareVertexColorBuffer);
-    rctx.bufferData(ARRAY_BUFFER, new Float32List.fromList([
-      0.5,
-      0.5,
-      1.0,
-      1.0,
-      0.1,
-      0.1,
-      1.0,
-      1.0,
-      0.9,
-      0.9,
-      1.0,
-      1.0,
-      0.5,
-      0.5,
-      1.0,
-      1.0
-    ]), STATIC_DRAW);
+    rctx.bufferData(
+        ARRAY_BUFFER,
+        new Float32List.fromList([
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          0.1,
+          0.1,
+          1.0,
+          1.0,
+          0.9,
+          0.9,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ]),
+        STATIC_DRAW);
 
     // The color to clear with, and enable depth testing.
     rctx.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -149,11 +151,12 @@ class WebGlComponent implements OnInit {
     mvMatrix.rotateY(radians(_rotationTri));
 
     rctx.bindBuffer(ARRAY_BUFFER, triangleVertexPositionBuffer);
-    rctx.vertexAttribPointer(program.attributes['aVertexPosition'], 3, FLOAT,
-        false, 0, 0);
+    rctx.vertexAttribPointer(
+        program.attributes['aVertexPosition'], 3, FLOAT, false, 0, 0);
 
     rctx.bindBuffer(ARRAY_BUFFER, triangleVertexColorBuffer);
-    rctx.vertexAttribPointer(program.attributes['aVertexColor'], 4, FLOAT, false, 0, 0);
+    rctx.vertexAttribPointer(
+        program.attributes['aVertexColor'], 4, FLOAT, false, 0, 0);
     setMatrixUniforms();
     rctx.drawArrays(TRIANGLES, 0, 3);
 
@@ -163,10 +166,11 @@ class WebGlComponent implements OnInit {
     mvMatrix.rotateX(radians(_rotationSquare));
 
     rctx.bindBuffer(ARRAY_BUFFER, squareVertexPositionBuffer);
-    rctx.vertexAttribPointer(program.attributes['aVertexPosition'], 3, FLOAT,
-        false, 0, 0);
+    rctx.vertexAttribPointer(
+        program.attributes['aVertexPosition'], 3, FLOAT, false, 0, 0);
     rctx.bindBuffer(ARRAY_BUFFER, squareVertexColorBuffer);
-    rctx.vertexAttribPointer(program.attributes['aVertexColor'], 4, FLOAT, false, 0, 0);
+    rctx.vertexAttribPointer(
+        program.attributes['aVertexColor'], 4, FLOAT, false, 0, 0);
     setMatrixUniforms();
     rctx.drawArrays(TRIANGLE_STRIP, 0, 4);
 
@@ -182,7 +186,7 @@ class WebGlComponent implements OnInit {
 
   setMatrixUniforms() {
     rctx.uniformMatrix4fv(program.uniforms['uPMatrix'], false, pMatrix.storage);
-    rctx.uniformMatrix4fv(program.uniforms['uMVMatrix'], false, mvMatrix.storage);
+    rctx.uniformMatrix4fv(
+        program.uniforms['uMVMatrix'], false, mvMatrix.storage);
   }
-
 }

@@ -17,28 +17,13 @@ import 'package:personal_website/Webgl/webgl_component.dart';
       path: '/home',
       name: 'Home',
       component: HomeComponent,
-      useAsDefault: true
-  ),
+      useAsDefault: true),
   const Route(
-      path: '/circles',
-      name: 'Circles',
-      component: CircleDrawerComponent
-  ),
+      path: '/circles', name: 'Circles', component: CircleDrawerComponent),
+  const Route(path: '/logo', name: 'Logo', component: LogoComponent),
   const Route(
-      path: '/logo',
-      name: 'Logo',
-      component: LogoComponent
-  ),
-  const Route(
-      path: '/ovr-hr',
-      name: 'OculusHackRice',
-      component: OculusHackComponent
-  ),
-  const Route(
-      path: '/webgl',
-      name: 'WebGl',
-      component: WebGlComponent
-  ),
+      path: '/ovr-hr', name: 'OculusHackRice', component: OculusHackComponent),
+  const Route(path: '/webgl', name: 'WebGl', component: WebGlComponent),
 ])
 class AppComponent {
   Router router;

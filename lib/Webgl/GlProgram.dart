@@ -23,8 +23,8 @@ class GlProgram {
 
   Shader fragmentShader, vertexShader;
 
-  GlProgram(RenderingContext gl, String fragSrc, String vertSrc, List<String> attributeNames,
-      List<String> uniformNames) {
+  GlProgram(RenderingContext gl, String fragSrc, String vertSrc,
+      List<String> attributeNames, List<String> uniformNames) {
     // Create and compile the fragment shader.
     fragmentShader = gl.createShader(FRAGMENT_SHADER);
     gl.shaderSource(fragmentShader, fragSrc);

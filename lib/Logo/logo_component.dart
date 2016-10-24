@@ -6,16 +6,13 @@ import 'package:personal_website/turtle.dart';
 
 // TODO: make a coordinate converter so things make sense on the canvas.
 
-@Component(
-    selector: 'logo-app',
-    templateUrl: 'logo_component.html'
-)
+@Component(selector: 'logo-app', templateUrl: 'logo_component.html')
 class LogoComponent implements OnInit {
   CanvasElement canvas;
   Stage stage;
   TurtleMachine mach;
 
-  String strDepth ='',
+  String strDepth = '',
       strLength = '',
       strAngle = '',
       strSides = '',
@@ -50,26 +47,29 @@ class LogoComponent implements OnInit {
 
   void drawFromString() {
     _resetCanvas();
-    if (selectedFunction == mach.drawCCurve
-        || selectedFunction == mach.drawDragonX
-        || selectedFunction == mach.drawDragon) {
-      selectedFunction(int.parse(strDepth, onError: (_) => 5),
+    if (selectedFunction == mach.drawCCurve ||
+        selectedFunction == mach.drawDragonX ||
+        selectedFunction == mach.drawDragon) {
+      selectedFunction(
+          int.parse(strDepth, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0),
           num.parse(strAngle, (_) => PI / 4));
     } else if (selectedFunction == mach.drawKochCurve) {
       selectedFunction(int.parse(strDepth, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0));
-    } else if (selectedFunction == mach.drawBumpCurve
-        || selectedFunction == mach.drawBumpSnowflake) {
-      selectedFunction(int.parse(strDepth, onError: (_) => 5),
+    } else if (selectedFunction == mach.drawBumpCurve ||
+        selectedFunction == mach.drawBumpSnowflake) {
+      selectedFunction(
+          int.parse(strDepth, onError: (_) => 5),
           int.parse(strSides, onError: (src) => 3),
           num.parse(strLength, (_) => 50.0));
-    } else if (selectedFunction == mach.drawPolygon
-        || selectedFunction == mach.drawStar) {
+    } else if (selectedFunction == mach.drawPolygon ||
+        selectedFunction == mach.drawStar) {
       selectedFunction(int.parse(strSides, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0));
     } else if (selectedFunction == mach.drawPolyGasket) {
-      selectedFunction(int.parse(strDepth, onError: (_) => 5),
+      selectedFunction(
+          int.parse(strDepth, onError: (_) => 5),
           int.parse(strSides, onError: (_) => 5),
           num.parse(strLength, (_) => 50),
           num.parse(strScale, (_) => .5));

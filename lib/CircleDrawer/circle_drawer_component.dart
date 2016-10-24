@@ -6,9 +6,8 @@ import 'dart:html';
 import 'dart:math';
 
 @Component(
-    selector: 'circle-drawer',
-    templateUrl: 'circle_drawer_component.html'
-)
+    selector: 'circle-drawer', templateUrl: 'circle_drawer_component.html')
+
 /// TODO: Clean up this implementation.
 class CircleDrawerComponent implements OnInit {
   Stage stage;
@@ -26,7 +25,15 @@ class CircleDrawerComponent implements OnInit {
       aMin = 0,
       aMax = 255;
 
-  String strcc = '', strrmin = '', strrmax = '', strbmin = '', strbmax = '', strgmin = '', strgmax = '', stramin = '', stramax = '';
+  String strcc = '',
+      strrmin = '',
+      strrmax = '',
+      strbmin = '',
+      strbmax = '',
+      strgmin = '',
+      strgmax = '',
+      stramin = '',
+      stramax = '';
 
   void ngOnInit() {
     canvas = querySelector("#circleDrawer");
@@ -44,8 +51,10 @@ class CircleDrawerComponent implements OnInit {
   int _randomNum(int low, int high) => random.nextInt(high - low) + low;
 
   int _argb(int alpha, int red, int green, int blue) =>
-      (alpha % 0x100) * 0x1000000 + (red % 0x100) * 0x10000
-          + (green % 0x100) * 0x100 + blue % 0x100;
+      (alpha % 0x100) * 0x1000000 +
+      (red % 0x100) * 0x10000 +
+      (green % 0x100) * 0x100 +
+      blue % 0x100;
 
   void addCircle() {
     circleCount = int.parse(strcc, onError: (src) => null) ?? circleCount;
@@ -63,9 +72,11 @@ class CircleDrawerComponent implements OnInit {
     // draw a bunch of random circles.
     for (var i = 0; i < circleCount; i++) {
       var shape = new Shape();
-      shape.graphics.circle(random.nextInt(canvas.width), random.nextInt(canvas.height), 60);
+      shape.graphics.circle(
+          random.nextInt(canvas.width), random.nextInt(canvas.height), 60);
       shape.graphics.fillColor(_argb(
-          _randomNum(aMin, aMax), _randomNum(rMin, rMax),
+          _randomNum(aMin, aMax),
+          _randomNum(rMin, rMax),
           _randomNum(gMin, gMax),
           _randomNum(bMin, bMax)));
       stage.addChild(shape);
@@ -77,9 +88,9 @@ class CircleDrawerComponent implements OnInit {
     CanvasRenderingContext2D ctx = canvas.getContext('2d');
 
     var serv = new StageService();
-    var imageData= ctx.getImageData(0, 0, canvas.width, canvas.height);
-    ImageElement elem = serv.saveImage(new Image.fromBytes(canvas.width, canvas.height, imageData.data));
+    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    ImageElement elem = serv.saveImage(
+        new Image.fromBytes(canvas.width, canvas.height, imageData.data));
     window.open('${elem.src}', '_blank');
   }
-
 }

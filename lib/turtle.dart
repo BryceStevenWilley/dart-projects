@@ -15,11 +15,9 @@ class TwoDVector {
 
   TwoDVector(this.x, this.y);
 
-  TwoDVector operator+(TwoDVector v) =>
-      new TwoDVector(x + v.x, y + v.y);
+  TwoDVector operator +(TwoDVector v) => new TwoDVector(x + v.x, y + v.y);
 
-  TwoDVector operator-(TwoDVector v) =>
-      new TwoDVector(x - v.x, y - v.y);
+  TwoDVector operator -(TwoDVector v) => new TwoDVector(x - v.x, y - v.y);
 }
 
 class TwoDPoint {
@@ -28,10 +26,8 @@ class TwoDPoint {
 
   TwoDPoint(this.x, this.y);
 
-  TwoDPoint addVec(TwoDVector v) =>
-      new TwoDPoint(x + v.x, y + v.y);
-  TwoDPoint subVec(TwoDVector v) =>
-      new TwoDPoint(x - v.x, y - v.y);
+  TwoDPoint addVec(TwoDVector v) => new TwoDPoint(x + v.x, y + v.y);
+  TwoDPoint subVec(TwoDVector v) => new TwoDPoint(x - v.x, y - v.y);
 }
 
 class RgbColor {
@@ -40,8 +36,10 @@ class RgbColor {
   RgbColor(this.r, this.g, this.b);
 
   int toInt() =>
-      (0x99 % 0x100) * 0x1000000 + (r  % 0x100) * 0x10000
-          + (g % 0x100) * 0x100 + b % 0x100;
+      (0x99 % 0x100) * 0x1000000 +
+      (r % 0x100) * 0x10000 +
+      (g % 0x100) * 0x100 +
+      b % 0x100;
 }
 
 class Line {
@@ -63,15 +61,13 @@ class TurtleState {
     _angle += angle;
   }
 
-  set loc(TwoDPoint n) =>
-      _loc = n;
+  set loc(TwoDPoint n) => _loc = n;
 
   Line trajectory(num step) {
-    return new Line.simple(_loc,
+    return new Line.simple(
+        _loc,
         new TwoDPoint(
-            _loc.x + cos(_angle) * step,
-            _loc.y + sin(_angle) * step
-        ));
+            _loc.x + cos(_angle) * step, _loc.y + sin(_angle) * step));
   }
 }
 
@@ -106,7 +102,7 @@ class TurtleMachine {
     _state.loc = l.b;
   }
 
-  void move(num step){
+  void move(num step) {
     _state.loc = _state.trajectory(step * _scale).b;
   }
 
@@ -147,7 +143,7 @@ class TurtleMachine {
       forward(length);
       //_mach.forward(length);
     } else {
-      scale(1/3);
+      scale(1 / 3);
       drawKochCurve(depth - 1, length);
       turn(magicTurn);
       drawKochCurve(depth - 1, length);
@@ -163,7 +159,7 @@ class TurtleMachine {
     if (depth == 0) {
       forward(length);
     } else {
-      scale(1/3);
+      scale(1 / 3);
       drawBumpCurve(depth - 1, sides, length);
       turn(-PI + (2 * PI / sides));
       for (int i = 1; i < sides; i++) {
@@ -241,7 +237,6 @@ class TurtleMachine {
       scale(1 / hypotenuse);
     }
   }
-
 
   void drawCCurve(int depth, num length, num angle) {
     if (depth <= 0) {
