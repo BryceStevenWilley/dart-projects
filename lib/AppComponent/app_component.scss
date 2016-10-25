@@ -1,7 +1,8 @@
+$primary-color: #1565C0; // Material Blue 800
+$secondary-color: #90A4AE; // Material Blue-grey 300
+$primary-text-color: white;
+
 #icontainer {
-  //height:100%;
-  //border-collapse:collapse;
-  //display : table;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -11,19 +12,17 @@
   flex: 1
 }
 
-/*footer {
-  display : table-row;
-  vertical-align : bottom;
-  height : 1px;
-} */
-
 .spacer {
   flex: 1
 }
 
 #header {
-  background-color: navy;
-  color: white;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  //position: fixed;
+  //width: 100%;
+  //z-index: 1000;
+  //padding: 50px;
 
   h1 {
     margin: 0;
@@ -36,18 +35,19 @@
   a {
     padding: 8px 16px;
     flex-grow: 1;
-    color: white;
+    color: $primary-text-color;
     text-decoration: none; // get rid of normal hyperlink stuff.
   }
 
   .active {
-    background-color: grey;
-    color: white;
+    background-color: $secondary-color;
+    color: $primary-text-color;
   }
 
+  // Swaps the color of the text and the color of the background.
   a:hover {
-    color: navy;
-    background-color: white;
+    color: $primary-color;
+    background-color: $primary-text-color;
   }
 }
 
@@ -56,20 +56,15 @@
 }
 
 footer {
-  background-color: navy;
-  padding: 1px 10px;
-  color: white;
+  background-color: $primary-color;
+  padding: 1px 8px;
+  //margin: 8px;
+  color: $primary-text-color;
+  font-size: 12px;
+  p {
+    margin: 8px;
+  }
   a {
-    color: white;
+    color: $primary-text-color;
   }
 }
-
-/*.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: #efefef;
-  text-align: center;
-} */

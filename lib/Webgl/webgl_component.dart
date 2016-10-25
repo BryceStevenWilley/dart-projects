@@ -86,8 +86,12 @@ class WebGlComponent implements OnInit {
     rctx.bindBuffer(ARRAY_BUFFER, squareVertexPositionBuffer);
     rctx.bufferData(
         ARRAY_BUFFER,
-        new Float32List.fromList(
-            [1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]),
+        new Float32List.fromList([
+          1.0, 1.0, 0.0,
+          -1.0, 1.0, 0.0,
+          1.0, -1.0, 0.0,
+          -1.0, -1.0, 0.0
+        ]),
         STATIC_DRAW);
 
     squareVertexColorBuffer = rctx.createBuffer();
@@ -95,22 +99,10 @@ class WebGlComponent implements OnInit {
     rctx.bufferData(
         ARRAY_BUFFER,
         new Float32List.fromList([
-          0.5,
-          0.5,
-          1.0,
-          1.0,
-          0.1,
-          0.1,
-          1.0,
-          1.0,
-          0.9,
-          0.9,
-          1.0,
-          1.0,
-          0.5,
-          0.5,
-          1.0,
-          1.0
+          0.5, 0.5, 1.0, 1.0,
+          0.1, 0.1, 1.0, 1.0,
+          0.9, 0.9, 1.0, 1.0,
+          0.5, 0.5, 1.0, 1.0
         ]),
         STATIC_DRAW);
 
