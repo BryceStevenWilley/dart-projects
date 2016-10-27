@@ -6,7 +6,9 @@ import 'dart:html';
 import 'dart:math';
 
 @Component(
-    selector: 'circle-drawer', templateUrl: 'circle_drawer_component.html')
+    selector: 'circle-drawer',
+    templateUrl: 'circle_drawer_component.html',
+    styleUrls: const ['circle_drawer_component.css'])
 
 /// TODO: Clean up this implementation.
 class CircleDrawerComponent implements OnInit {

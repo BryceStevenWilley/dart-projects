@@ -1,34 +1,42 @@
 
 <h2>Random Circles</h2>
+<div class="drawer">
+<div class="controls">
+    <!-- Note: go back to using input type="number" when angular.dart/issues/1033 is solved. -->
+    <div class="control"> How many circles: <input type="text" [(ngModel)]="strcc"> </div>
+    <div class="control">
+        Red variance:
+        <div class="sliders">
+            min: <input class="red-slider" type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 0)">
+            max: <input class="red-slider" type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 1)">
+        </div>
+    </div>
+    <div class="control">
+        Blue variance:
+        <div class="sliders">
+            min: <input class="blue-slider" type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 2)">
+            max: <input class="blue-slider" type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 3)">
+        </div>
+    </div>
+    <div class="control">
+        Green variance:
+        <div class="sliders">
+            min: <input class="green-slider" type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 4)">
+            max: <input class="green-slider" type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 5)">
+        </div>
+    </div>
+    <div class="control">
+        Alpha (transparency) variance:
+        <div class="sliders">
+            min: <input type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 6)">
+            max: <input type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 7)">
+        </div>
+    </div>
 
-<div id="right-here"></div>
-
-<!-- Note: go back to using input type="number" when angular.dart/issues/1033 is solved. -->
-<div> How many circles: <input type="text" [(ngModel)]="strcc"> </div>
-<div>
-    How much should red vary:
-    min: <input type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 0)">
-    max: <input type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 1)">
+    <button (click)="addCircle(seedGen.nextInt(1000))" class="control">Draw Circles!</button>
+    <button (click)="download()" class="control">Download the picture</button>
+    <br/>
 </div>
-<div>
-    How much should blue vary:
-    min: <input type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 2)">
-    max: <input type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 3)">
-</div>
-<div>
-    How much should green vary:
-    min: <input type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 4)">
-    max: <input type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 5)">
-</div>
-<div>
-    How much should alpha vary:
-    min: <input type="range" min="0" max="255" value="0" (input)="updateMaxMin($event.target.value, 6)">
-    max: <input type="range" min="0" max="255" value="255" (input)="updateMaxMin($event.target.value, 7)">
-</div>
-
-
-<button (click)="addCircle(seedGen.nextInt(1000))">Draw Circles!</button>
-<button (click)="download()">Download the picture</button>
-<br/>
 
 <canvas id="circleDrawer" width="800" height="600"></canvas>
+</div>
