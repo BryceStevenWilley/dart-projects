@@ -2,7 +2,7 @@ import 'package:angular2/core.dart';
 import 'dart:html';
 import 'dart:math';
 import 'package:stagexl/stagexl.dart';
-import 'package:personal_website/turtle.dart';
+import 'package:personal_website/Logo/turtle.dart';
 
 // TODO: make a coordinate converter so things make sense on the canvas.
 

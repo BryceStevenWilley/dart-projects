@@ -14,26 +14,13 @@ class CircleDrawerComponent implements OnInit {
   CanvasElement canvas;
   CanvasRenderingContext2D ctx;
   var random = new Random();
+  var seedGen = new Random();
+  int lastSeed = 0;
 
-  int circleCount = 150,
-      rMin = 0,
-      rMax = 255,
-      bMin = 0,
-      bMax = 255,
-      gMin = 0,
-      gMax = 255,
-      aMin = 0,
-      aMax = 255;
+  int circleCount = 150;
+  List<int> maxMins = [0, 255, 0, 255, 0, 255, 0, 255];
 
-  String strcc = '',
-      strrmin = '',
-      strrmax = '',
-      strbmin = '',
-      strbmax = '',
-      strgmin = '',
-      strgmax = '',
-      stramin = '',
-      stramax = '';
+  String strcc = '';
 
   void ngOnInit() {
     canvas = querySelector("#circleDrawer");
@@ -42,7 +29,8 @@ class CircleDrawerComponent implements OnInit {
     var renderLoop = new RenderLoop();
     renderLoop.addStage(stage);
 
-    addCircle();
+    lastSeed = seedGen.nextInt(1000);
+    addCircle(lastSeed);
   }
 
   int parseInt(String numStr, int backUp) =>
@@ -56,17 +44,24 @@ class CircleDrawerComponent implements OnInit {
       (green % 0x100) * 0x100 +
       blue % 0x100;
 
-  void addCircle() {
-    circleCount = int.parse(strcc, onError: (src) => null) ?? circleCount;
-    rMin = int.parse(strrmin, onError: (src) => null) ?? rMin;
-    rMax = int.parse(strrmax, onError: (src) => null) ?? rMax;
-    bMin = int.parse(strbmin, onError: (src) => null) ?? bMin;
-    bMax = int.parse(strbmax, onError: (src) => null) ?? bMax;
-    gMin = int.parse(strgmin, onError: (src) => null) ?? gMin;
-    gMax = int.parse(strgmax, onError: (src) => null) ?? gMax;
-    aMin = int.parse(stramin, onError: (src) => null) ?? aMin;
-    aMax = int.parse(stramax, onError: (src) => null) ?? aMax;
+  void updateMaxMin(String possibleVal, int position) {
+    maxMins[position] = parseInt(possibleVal, maxMins[position]);
+    // Update the pic
+    addCircle(lastSeed);
+  }
 
+  void addCircle(int seed) {
+    random = new Random(seed);
+    circleCount = int.parse(strcc, onError: (src) => null) ?? circleCount;
+
+    var rMin = maxMins[0];
+    var rMax = maxMins[1];
+    var bMin = maxMins[2];
+    var bMax = maxMins[3];
+    var gMin = maxMins[4];
+    var gMax = maxMins[5];
+    var aMin = maxMins[6];
+    var aMax = maxMins[7];
     print('Red: $rMin, $rMax.\nBlue: $bMin, $bMax\nAlpha: $aMin, $aMax');
     stage.removeChildren();
     // draw a bunch of random circles.
