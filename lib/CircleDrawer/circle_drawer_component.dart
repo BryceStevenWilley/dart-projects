@@ -9,8 +9,6 @@ import 'dart:math';
     selector: 'circle-drawer',
     templateUrl: 'circle_drawer_component.html',
     styleUrls: const ['circle_drawer_component.css'])
-
-/// TODO: Clean up this implementation.
 class CircleDrawerComponent implements OnInit {
   Stage stage;
   CanvasElement canvas;
@@ -64,7 +62,6 @@ class CircleDrawerComponent implements OnInit {
     var gMax = maxMins[5];
     var aMin = maxMins[6];
     var aMax = maxMins[7];
-    print('Red: $rMin, $rMax.\nBlue: $bMin, $bMax\nAlpha: $aMin, $aMax');
     stage.removeChildren();
     // draw a bunch of random circles.
     for (var i = 0; i < circleCount; i++) {
@@ -84,9 +81,9 @@ class CircleDrawerComponent implements OnInit {
     CanvasElement canvas = querySelector("#circleDrawer");
     CanvasRenderingContext2D ctx = canvas.getContext('2d');
 
-    var serv = new StageService();
+    var service = new StageService();
     var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    ImageElement elem = serv.saveImage(
+    ImageElement elem = service.saveImage(
         new Image.fromBytes(canvas.width, canvas.height, imageData.data));
     window.open('${elem.src}', '_blank');
   }
