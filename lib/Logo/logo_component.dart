@@ -33,7 +33,7 @@ class LogoComponent implements OnInit {
       mach.drawPolyGasket: 'Poly-gasket',
       mach.drawCCurve: 'C-Curve',
       mach.drawDragonX: 'Dragon Curve',
-      mach.drawDragon: 'Prototype Dragon',
+      //mach.drawDragon: 'Prototype Dragon',
     };
     selectedFunction = mach.drawPolygon;
   }
