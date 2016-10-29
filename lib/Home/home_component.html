@@ -2,11 +2,7 @@
     Hey there!
 </h2>
 
-<div class="img-gallery">
-    <button *ngIf="gallery.canGoLeft()" class="pic-button" (click)="gallery.leftClick()"><</button>
-    <img [src]="gallery.getImagePath()" alt="Pics of Bryce Willey Doing things">
-    <button *ngIf="gallery.canGoRight()" class="pic-button" (click)="gallery.rightClick()">></button>
-</div>
+<pic-gallery [imageMapping]="picList.asMap()" [imageCount]="picList.length"></pic-gallery>
 
 <section>
     I'm Bryce, and an Undergraduate/Master's student at Rice University.
