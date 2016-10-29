@@ -10,8 +10,7 @@ import 'package:personal_website/Webgl/webgl_component.dart';
     selector: 'my-app',
     templateUrl: 'app_component.html',
     styleUrls: const ['app_component.css'],
-    directives: const [ROUTER_DIRECTIVES],
-    providers: const [ROUTER_PROVIDERS])
+    directives: const [ROUTER_DIRECTIVES])
 @RouteConfig(const [
   const Route(
       path: '/home',

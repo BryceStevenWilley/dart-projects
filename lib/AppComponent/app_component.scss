@@ -36,19 +36,23 @@ $primary-text-color: white;
     padding: 8px 16px;
     flex-grow: 1;
     color: $primary-text-color;
-    text-decoration: none; // get rid of normal hyperlink stuff.
+    text-decoration: none; // get rid of normal hyperlink stuff
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
   }
 
   .active {
-    background-color: $secondary-color;
-    color: $primary-text-color;
+    background-color: $primary-text-color;
+    color: $primary-color;
   }
 
   // Swaps the color of the text and the color of the background.
   a:hover {
-    color: $primary-color;
-    background-color: $primary-text-color;
+    //color: $primary-color;
+    //background-color: $primary-text-color;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
+  //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .content {
@@ -67,4 +71,11 @@ footer {
   a {
     color: $primary-text-color;
   }
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+h2 {
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
 }
