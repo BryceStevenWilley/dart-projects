@@ -9,7 +9,8 @@
 
 <a href="https://github.com/BrownRiceRice/oculus-hackrice16">Github Page</a>
 <br/>
-<img src="images/Capture.PNG">
-<img src="images/Capture2.PNG">
-<img src="images/Capture3.PNG">
-<img src="images/Capture5.PNG">
+<div class="img-gallery">
+    <button *ngIf="canGoLeft()" class="pic-button" (click)="leftClick()"><</button>
+    <img [src]="getImagePath()" alt="Images from 'No Man's Forest'">
+    <button *ngIf="canGoRight()" class="pic-button" (click)="rightClick()">></button>
+</div>
