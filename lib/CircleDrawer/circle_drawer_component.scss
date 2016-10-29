@@ -6,6 +6,19 @@ $blue-slider: #0D47A1;
 $alpha-slider: #B0BEC5;
 $slider-track: #CFD8DC;
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  p {
+    max-width: 60%;
+    margin: 10px;
+  }
+}
+
 .drawer {
   display: flex;
   flex-direction: row;
