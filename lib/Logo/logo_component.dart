@@ -42,7 +42,7 @@ class LogoComponent implements OnInit {
       'Poly-gasket': new FractalInfo('Poly-gasket', -1, mach.polyGasket),
       'C-Curve': new FractalInfo('C-Curve', 2, mach.cCurve),
       'Dragon Curve': new FractalInfo('Dragon Curve', 2, mach.drawDragonX),
-      'Prototype Dragon': new FractalInfo('Prototype Dragon', 2, mach.dragon),
+      //'Prototype Dragon': new FractalInfo('Prototype Dragon', 2, mach.dragon),
     };
     activeFractal = mach.polygon;
     activeName = 'Polygon';

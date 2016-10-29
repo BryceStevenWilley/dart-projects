@@ -4,16 +4,15 @@ TwoDVector averagePointLocation(List<Line> lines) {
   TwoDVector allSummed = lines.fold(new TwoDVector(0, 0), (v, l) {
     return new TwoDVector(v.x + l.a.x + l.b.x, v.y + l.a.y + l.b.y);
   });
-  allSummed.x = allSummed.x / (lines.length * 2);
-  allSummed.y = allSummed.y / (lines.length * 2);
-  return allSummed;
+  return new TwoDVector(allSummed.x / (lines.length * 2),
+      allSummed.y / (lines.length * 2));
 }
 
 class TwoDVector {
-  num x;
-  num y;
+  final num x;
+  final num y;
 
-  TwoDVector(this.x, this.y);
+  const TwoDVector(this.x, this.y);
 
   TwoDVector operator +(TwoDVector v) => new TwoDVector(x + v.x, y + v.y);
 
@@ -21,19 +20,19 @@ class TwoDVector {
 }
 
 class TwoDPoint {
-  num x;
-  num y;
+  final num x;
+  final num y;
 
-  TwoDPoint(this.x, this.y);
+  const TwoDPoint(this.x, this.y);
 
   TwoDPoint addVec(TwoDVector v) => new TwoDPoint(x + v.x, y + v.y);
   TwoDPoint subVec(TwoDVector v) => new TwoDPoint(x - v.x, y - v.y);
 }
 
 class RgbColor {
-  int r, g, b;
+  final int r, g, b;
 
-  RgbColor(this.r, this.g, this.b);
+  const RgbColor(this.r, this.g, this.b);
 
   int toInt() =>
       (0x99 % 0x100) * 0x1000000 +
