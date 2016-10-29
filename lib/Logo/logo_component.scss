@@ -1,0 +1,23 @@
+@import '../AppComponent/app_component';
+@import '../CircleDrawer/circle_drawer_component';
+
+.controls {
+  align-items: flex-start;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  p {
+    max-width: 60%;
+    margin: 10px;
+  }
+}
+
+canvas {
+  border: 1px solid black;
+}

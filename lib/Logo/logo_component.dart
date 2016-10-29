@@ -6,7 +6,10 @@ import 'package:personal_website/Logo/turtle.dart';
 
 // TODO: make a coordinate converter so things make sense on the canvas.
 
-@Component(selector: 'logo-app', templateUrl: 'logo_component.html')
+@Component(
+    selector: 'logo-app',
+    templateUrl: 'logo_component.html',
+    styleUrls: const ['logo_component.css'])
 class LogoComponent implements OnInit {
   CanvasElement canvas;
   Stage stage;
@@ -18,7 +21,7 @@ class LogoComponent implements OnInit {
       strSides = '',
       strScale = '';
 
-  Function selectedFunction;
+  Function activeFractal;
 
   Map<Function, String> functions;
 
@@ -35,7 +38,7 @@ class LogoComponent implements OnInit {
       mach.drawDragonX: 'Dragon Curve',
       mach.drawDragon: 'Prototype Dragon',
     };
-    selectedFunction = mach.drawPolygon;
+    activeFractal = mach.drawPolygon;
   }
 
   void ngOnInit() {
@@ -45,30 +48,32 @@ class LogoComponent implements OnInit {
     renderLoop.addStage(stage);
   }
 
+  bool activeFractalMatches(List<Function> fs) => fs.contains(activeFractal);
+
   void drawFromString() {
     _resetCanvas();
-    if (selectedFunction == mach.drawCCurve ||
-        selectedFunction == mach.drawDragonX ||
-        selectedFunction == mach.drawDragon) {
-      selectedFunction(
+    if (activeFractal == mach.drawCCurve ||
+        activeFractal == mach.drawDragonX ||
+        activeFractal == mach.drawDragon) {
+      activeFractal(
           int.parse(strDepth, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0),
           num.parse(strAngle, (_) => PI / 4));
-    } else if (selectedFunction == mach.drawKochCurve) {
-      selectedFunction(int.parse(strDepth, onError: (_) => 5),
+    } else if (activeFractal == mach.drawKochCurve) {
+      activeFractal(int.parse(strDepth, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0));
-    } else if (selectedFunction == mach.drawBumpCurve ||
-        selectedFunction == mach.drawBumpSnowflake) {
-      selectedFunction(
+    } else if (activeFractal == mach.drawBumpCurve ||
+        activeFractal == mach.drawBumpSnowflake) {
+      activeFractal(
           int.parse(strDepth, onError: (_) => 5),
           int.parse(strSides, onError: (src) => 3),
           num.parse(strLength, (_) => 50.0));
-    } else if (selectedFunction == mach.drawPolygon ||
-        selectedFunction == mach.drawStar) {
-      selectedFunction(int.parse(strSides, onError: (_) => 5),
+    } else if (activeFractal == mach.drawPolygon ||
+        activeFractal == mach.drawStar) {
+      activeFractal(int.parse(strSides, onError: (_) => 5),
           num.parse(strLength, (_) => 50.0));
-    } else if (selectedFunction == mach.drawPolyGasket) {
-      selectedFunction(
+    } else if (activeFractal == mach.drawPolyGasket) {
+      activeFractal(
           int.parse(strDepth, onError: (_) => 5),
           int.parse(strSides, onError: (_) => 5),
           num.parse(strLength, (_) => 50),

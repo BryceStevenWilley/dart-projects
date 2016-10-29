@@ -1,5 +1,5 @@
 <h2>LOGO: Turtle Graphics</h2>
-
+<section>
 <p>
 I'm currently taking COMP 360 at Rice, and the first part of the
 class is focused on Turtle Graphics, a way of generating 2D shapes
@@ -12,53 +12,42 @@ Gaskets and my papers and always try to draw super comple dragon curves.
 I also really like the simplicity of the turtle, so I decided to make
 a demo using StageXL and Dart! Try out the demo below.
 </p>
+</section>
+
+<br/>
+<div class="drawer">
+<div class="controls">
+    <div class="control">
+        What do you want to draw?
+        <select [(ngModel)]="activeFractal">
+            <option *ngFor="let f of functions.keys" [ngValue]="f">{{functions[f]}}</option>
+        </select>
+    </div>
+
+    <div class="control">
+        Length: <input class="count-slider" type="range" min="1" max="800" (input)="strLength=$event.target.value"><br/>
+    </div>
+    <div class="control" *ngIf="activeFractalMatches([mach.drawCCurve, mach.drawDragonX,
+            mach.drawDragon, mach.drawKochCurve, mach.drawBumpCurve, mach.drawBumpSnowflake, mach.drawPolyGasket])">
+        Depth: <input class="count-slider" type="range" min="0" max="15" (input)="strDepth=$event.target.value"><br/>
+    </div>
+
+    <div class="control" *ngIf="activeFractalMatches([mach.drawPolygon, mach.drawStar, mach.drawBumpCurve, mach.drawBumpSnowflake, mach.drawPolyGasket])">
+        Sides: <input type="text" [(ngModel)]="strSides"><br/>
+    </div>
+
+    <div class="control" *ngIf="activeFractalMatches([mach.drawCCurve, mach.drawDragonX, mach.drawDragon])">
+        Angle: <input type="text" [(ngModel)]="strAngle"><br/>
+    </div>
+
+    <div class="control" *ngIf="activeFractalMatches([mach.drawPolyGasket])">
+        Scale: <input type="text" [(ngModel)]="strScale"><br/>
+    </div>
+
+    <button class="control" (click)="drawFromString()">Draw!</button>
+</div>
 
 <br/>
 
-What do you want to draw?
-<select [(ngModel)]="selectedFunction">
-    <option *ngFor="let f of functions.keys"
-            [ngValue]="f">{{functions[f]}}</option>
-</select>
-
-
-<div *ngIf="selectedFunction == mach.drawPolygon
-        || selectedFunction == mach.drawStar">
-    Sides: <input type="text" [(ngModel)]="strSides"><br/>
-    Length: <input type="text" [(ngModel)]="strLength"><br/>
-</div>
-
-<div *ngIf="selectedFunction == mach.drawCCurve
-        || selectedFunction == mach.drawDragonX
-        || selectedFunction == mach.drawDragon">
-    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
-    Length: <input type="text" [(ngModel)]="strLength"><br/>
-    Angle: <input type="text" [(ngModel)]="strAngle"><br/>
-</div>
-
-<div *ngIf="selectedFunction == mach.drawKochCurve">
-    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
-    Length: <input type="text" [(ngModel)]="strLength"><br/>
-</div>
-
-<div *ngIf="selectedFunction == mach.drawBumpCurve
-        || selectedFunction == mach.drawBumpSnowflake">
-    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
-    Sides: <input type="text" [(ngModel)]="strSides"><br/>
-    Length: <input type="text" [(ngModel)]="strLength"><br/>
-</div>
-
-<div *ngIf="selectedFunction == mach.drawPolyGasket">
-    Depth: <input type="text" [(ngModel)]="strDepth"><br/>
-    Sides: <input type="text" [(ngModel)]="strSides"><br/>
-    Length: <input type="text" [(ngModel)]="strLength"><br/>
-    Scale: <input type="text" [(ngModel)]="strScale"><br/>
-</div>
-
-<button (click)="drawFromString()">Draw!</button>
-
-<br/>
-
-<div>
   <canvas id="logoThing" width="800" height="600"></canvas>
 </div>
