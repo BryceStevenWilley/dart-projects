@@ -1,4 +1,5 @@
 @import '../AppComponent/app_component';
+@import '../pic_gallery';
 
 section {
   text-align: center;
@@ -10,4 +11,12 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.img-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }

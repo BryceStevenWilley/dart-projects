@@ -64,6 +64,7 @@ class LogoComponent implements OnInit {
   }
 
   void updateCurve(String newCurve) {
+    currentDepth = 1;
     activeName = newCurve;
     activeFractal = functions[activeName].toCall;
     allowedDepth = new List<int>.generate(functions[activeName].maxDepth(sides), (i) => i + 1);
@@ -73,6 +74,7 @@ class LogoComponent implements OnInit {
   void updateSides(int newSides) {
     sides = newSides;
     allowedDepth = new List<int>.generate(functions[activeName].maxDepth(sides), (i) => i + 1);
+    currentDepth = min(functions[activeName].maxDepth(sides), currentDepth);
     drawFromString();
   }
 

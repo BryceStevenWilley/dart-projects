@@ -70,6 +70,8 @@ class TurtleState {
   }
 }
 
+const maxLinesToDraw = 80000;
+
 class FractalInfo {
   final String name;
   final int recursiveCalls;
@@ -81,11 +83,11 @@ class FractalInfo {
     print('Given Recursive: $recursiveCalls');
     print('Variant: $variantRecursive');
     if (recursiveCalls > 1) {
-      return (log(150000) / log(recursiveCalls)).floor();
+      return (log(maxLinesToDraw) / log(recursiveCalls)).floor();
     } else if (recursiveCalls == 1 || variantRecursive == 1) {
       return 18;
     } else {
-      return (log(150000) / log(variantRecursive)).floor();
+      return (log(maxLinesToDraw) / log(variantRecursive)).floor();
     }
   }
 }
