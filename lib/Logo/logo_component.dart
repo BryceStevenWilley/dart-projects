@@ -15,30 +15,37 @@ class LogoComponent implements OnInit {
   Stage stage;
   TurtleMachine mach;
 
-  String strDepth = '',
-      strLength = '',
-      strAngle = '',
+  String strAngle = '',
       strSides = '',
       strScale = '';
 
-  Function activeFractal;
+  num length = 50, scale = .5, angleInDegrees = 45;
+  int currentDepth = 1;
+  int sides = 5;
 
-  Map<Function, String> functions;
+  Function activeFractal;
+  String activeName;
+
+  Map<String, FractalInfo> functions;
+
+  List<int> allowedSides = new List<int>.generate(12, (i) => i + 1);
+  List<int> allowedDepth = new List<int>.generate(18, (i) => i + 1);
 
   LogoComponent() {
     mach = new TurtleMachine();
     functions = {
-      mach.drawPolygon: 'Polygon',
-      mach.drawStar: 'Star',
-      mach.drawKochCurve: 'Koch Curve',
-      mach.drawBumpCurve: 'Bump Curve',
-      mach.drawBumpSnowflake: 'Snowflake',
-      mach.drawPolyGasket: 'Poly-gasket',
-      mach.drawCCurve: 'C-Curve',
-      mach.drawDragonX: 'Dragon Curve',
-      mach.drawDragon: 'Prototype Dragon',
+      'Polygon': new FractalInfo('Polygon', 1, mach.polygon),
+      'Star': new FractalInfo('Star', 1, mach.star),
+      'Koch Curve': new FractalInfo('Koch Curve', 4, mach.kochCurve),
+      'Bump Curve': new FractalInfo('Bump Curve', -1, mach.bumpCurve),
+      'Snowflake': new FractalInfo('Snowflake', -1, mach.bumpSnowflake),
+      'Poly-gasket': new FractalInfo('Poly-gasket', -1, mach.polyGasket),
+      'C-Curve': new FractalInfo('C-Curve', 2, mach.cCurve),
+      'Dragon Curve': new FractalInfo('Dragon Curve', 2, mach.drawDragonX),
+      'Prototype Dragon': new FractalInfo('Prototype Dragon', 2, mach.dragon),
     };
-    activeFractal = mach.drawPolygon;
+    activeFractal = mach.polygon;
+    activeName = 'Polygon';
   }
 
   void ngOnInit() {
@@ -46,38 +53,59 @@ class LogoComponent implements OnInit {
     stage = new Stage(canvas, width: 800, height: 600);
     var renderLoop = new RenderLoop();
     renderLoop.addStage(stage);
+    drawFromString();
   }
 
   bool activeFractalMatches(List<Function> fs) => fs.contains(activeFractal);
 
+  void updateDepth(int newDepth) {
+    currentDepth = newDepth;
+    drawFromString();
+  }
+
+  void updateCurve(String newCurve) {
+    activeName = newCurve;
+    activeFractal = functions[activeName].toCall;
+    allowedDepth = new List<int>.generate(functions[activeName].maxDepth(sides), (i) => i + 1);
+    drawFromString();
+  }
+
+  void updateSides(int newSides) {
+    sides = newSides;
+    allowedDepth = new List<int>.generate(functions[activeName].maxDepth(sides), (i) => i + 1);
+    drawFromString();
+  }
+
+  void updateLength(String newLength) {
+    length = num.parse(newLength, (_) => length);
+    drawFromString();
+  }
+
+  void updateAngle(String newAngle) {
+    angleInDegrees = num.parse(newAngle, (_) => angleInDegrees);
+    drawFromString();
+  }
+
+  void updateScale(String newScale) {
+    scale = num.parse(newScale, (_) => scale);
+    drawFromString();
+  }
+
   void drawFromString() {
     _resetCanvas();
-    if (activeFractal == mach.drawCCurve ||
-        activeFractal == mach.drawDragonX ||
-        activeFractal == mach.drawDragon) {
-      activeFractal(
-          int.parse(strDepth, onError: (_) => 5),
-          num.parse(strLength, (_) => 50.0),
-          num.parse(strAngle, (_) => PI / 4));
-    } else if (activeFractal == mach.drawKochCurve) {
-      activeFractal(int.parse(strDepth, onError: (_) => 5),
-          num.parse(strLength, (_) => 50.0));
-    } else if (activeFractal == mach.drawBumpCurve ||
-        activeFractal == mach.drawBumpSnowflake) {
-      activeFractal(
-          int.parse(strDepth, onError: (_) => 5),
-          int.parse(strSides, onError: (src) => 3),
-          num.parse(strLength, (_) => 50.0));
-    } else if (activeFractal == mach.drawPolygon ||
-        activeFractal == mach.drawStar) {
-      activeFractal(int.parse(strSides, onError: (_) => 5),
-          num.parse(strLength, (_) => 50.0));
-    } else if (activeFractal == mach.drawPolyGasket) {
-      activeFractal(
-          int.parse(strDepth, onError: (_) => 5),
-          int.parse(strSides, onError: (_) => 5),
-          num.parse(strLength, (_) => 50),
-          num.parse(strScale, (_) => .5));
+    if (activeFractalMatches([mach.cCurve, mach.drawDragonX ,mach.dragon])) {
+      activeFractal(currentDepth, length,
+          PI / 180 * angleInDegrees);
+    } else if (activeFractal == mach.kochCurve) {
+      activeFractal(currentDepth, length);
+    } else if (activeFractal == mach.bumpCurve ||
+        activeFractal == mach.bumpSnowflake) {
+      activeFractal(currentDepth, sides, length);
+    } else if (activeFractal == mach.polygon ||
+        activeFractal == mach.star) {
+      activeFractal(sides, length);
+    } else if (activeFractal == mach.polyGasket) {
+      activeFractal(currentDepth, sides, length, scale);
     }
     _displayLines();
   }
@@ -88,8 +116,6 @@ class LogoComponent implements OnInit {
   }
 
   void _displayLines() {
-    print('${mach.getLines().length} new lines to draw');
-
     TwoDVector avgP = averagePointLocation(mach.getLines());
     TwoDVector desiredP = new TwoDVector(400, 300);
 
@@ -98,7 +124,6 @@ class LogoComponent implements OnInit {
     // We want the average point location to be 400, 300
     var lines = new Sprite();
     for (Line l in mach.getLines()) {
-      print('Drawing line from ${l.a.x}, ${l.a.y} to ${l.b.x}, ${l.b.y}');
       lines.graphics.beginPath();
       TwoDPoint a = l.a.addVec(offset);
       TwoDPoint b = l.b.addVec(offset);

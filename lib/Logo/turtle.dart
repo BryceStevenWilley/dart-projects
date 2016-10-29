@@ -71,6 +71,26 @@ class TurtleState {
   }
 }
 
+class FractalInfo {
+  final String name;
+  final int recursiveCalls;
+  final Function toCall;
+
+  const FractalInfo(this.name, this.recursiveCalls, this.toCall);
+
+  int maxDepth([int variantRecursive]) {
+    print('Given Recursive: $recursiveCalls');
+    print('Variant: $variantRecursive');
+    if (recursiveCalls > 1) {
+      return (log(150000) / log(recursiveCalls)).floor();
+    } else if (recursiveCalls == 1 || variantRecursive == 1) {
+      return 18;
+    } else {
+      return (log(150000) / log(variantRecursive)).floor();
+    }
+  }
+}
+
 class TurtleMachine {
   TurtleState _state;
   List<Line> _trails;
@@ -122,70 +142,69 @@ class TurtleMachine {
     _scale *= newScale;
   }
 
-  void drawPolygon(int sides, num length) {
+  void polygon(int sides, num length) {
     for (int i = 0; i < sides; i++) {
       forward(length);
       turn(2 * PI / sides);
     }
   }
 
-  void drawStar(int sides, num length) {
+  void star(int sides, num length) {
     for (int i = 0; i < sides; i++) {
       forward(length);
       turn(4 * PI / sides);
     }
   }
 
-  void drawKochCurve(int depth, num length) {
+  void kochCurve(int depth, num length) {
     const num magicTurn = 1.047197;
     if (depth == 0) {
       // Draw a polygon.
       forward(length);
-      //_mach.forward(length);
     } else {
       scale(1 / 3);
-      drawKochCurve(depth - 1, length);
+      kochCurve(depth - 1, length);
       turn(magicTurn);
-      drawKochCurve(depth - 1, length);
+      kochCurve(depth - 1, length);
       turn(-(magicTurn) * 2);
-      drawKochCurve(depth - 1, length);
+      kochCurve(depth - 1, length);
       turn(magicTurn);
-      drawKochCurve(depth - 1, length);
+      kochCurve(depth - 1, length);
       scale(3);
     }
   }
 
-  void drawBumpCurve(int depth, int sides, num length) {
+  void bumpCurve(int depth, int sides, num length) {
     if (depth == 0) {
       forward(length);
     } else {
       scale(1 / 3);
-      drawBumpCurve(depth - 1, sides, length);
+      bumpCurve(depth - 1, sides, length);
       turn(-PI + (2 * PI / sides));
       for (int i = 1; i < sides; i++) {
-        drawBumpCurve(depth - 1, sides, length);
+        bumpCurve(depth - 1, sides, length);
         turn(2 * PI / sides);
       }
       turn(PI);
-      drawBumpCurve(depth - 1, sides, length);
+      bumpCurve(depth - 1, sides, length);
       scale(3);
     }
   }
 
-  void drawBumpSnowflake(int depth, int sides, num length) {
+  void bumpSnowflake(int depth, int sides, num length) {
     for (int i = 0; i < sides; i++) {
-      drawBumpCurve(depth, sides, length);
+      bumpCurve(depth, sides, length);
       turn(2 * PI / sides);
     }
   }
 
-  void drawPolyGasket(int depth, int sides, num length, num scaleRate) {
+  void polyGasket(int depth, int sides, num length, num scaleRate) {
     if (depth <= 0) {
-      drawPolygon(sides, length);
+      polygon(sides, length);
     } else {
       for (int i = 0; i < sides; i++) {
         scale(scaleRate);
-        drawPolyGasket(depth - 1, sides, length, scaleRate);
+        polyGasket(depth - 1, sides, length, scaleRate);
         scale(1 / scaleRate);
         move(length);
         turn(2 * PI / sides);
@@ -223,31 +242,31 @@ class TurtleMachine {
     }
   }
 
-  void drawDragon(int depth, num length, num angle) {
+  void dragon(int depth, num length, num angle) {
     if (depth <= 0) {
       forward(length);
     } else {
       var hypotenuse = 1 / (2 * cos(angle));
       scale(hypotenuse);
       turn(angle);
-      drawDragon(depth - 1, length, angle.abs());
+      dragon(depth - 1, length, angle.abs());
       turn(-2 * angle);
-      drawDragon(depth - 1, length, -angle.abs());
+      dragon(depth - 1, length, -angle.abs());
       turn(angle);
       scale(1 / hypotenuse);
     }
   }
 
-  void drawCCurve(int depth, num length, num angle) {
+  void cCurve(int depth, num length, num angle) {
     if (depth <= 0) {
       forward(length);
     } else {
       var hypotenuse = 1 / (2 * cos(angle));
       turn(angle);
       scale(hypotenuse);
-      drawCCurve(depth - 1, length, angle);
+      cCurve(depth - 1, length, angle);
       turn(-2 * angle);
-      drawCCurve(depth - 1, length, angle);
+      cCurve(depth - 1, length, angle);
       scale(1 / hypotenuse);
       turn(angle);
     }
