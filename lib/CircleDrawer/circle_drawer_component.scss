@@ -1,6 +1,9 @@
+@import '../AppComponent/app_component';
+
 $red-slider: #B71C1C;
 $green-slider: #1B5E20;
 $blue-slider: #0D47A1;
+$alpha-slider: #B0BEC5;
 $slider-track: #CFD8DC;
 
 .drawer {
@@ -9,30 +12,50 @@ $slider-track: #CFD8DC;
 }
 
 button {
-    margin: 10px;
+  font-size: 16px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 2px;
+  text-decoration: none;
+  background-color: $primary-color;
+  color: $primary-text-color;
+  border: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .controls {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-around;
 }
 
 canvas {
   flex: 3; // Take up a bunch of space.
 }
 
+.count-slider {
+  margin: 10px 10px 10px 20px;
+}
+
 .sliders {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin: 10px 10px 10px 20px;
 }
 
 input[type='range'] {
   -webkit-appearance: none !important;
   background: $slider-track;
-  height:5px;
+  height: 3px;
+  outline: none;
+  margin: 3px;
 }
 
 input.red-slider[type=range]::-webkit-slider-thumb {
@@ -43,6 +66,16 @@ input.red-slider[type=range]::-webkit-slider-thumb {
   border-radius: 50%;
   background: $red-slider;
 }
+
+input.count-slider[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $alpha-slider;
+}
+
 
 input.green-slider[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -60,4 +93,13 @@ input.blue-slider[type=range]::-webkit-slider-thumb {
   width: 16px;
   border-radius: 50%;
   background: $blue-slider;
+}
+
+input.alpha-slider[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: $alpha-slider;
 }

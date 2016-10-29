@@ -17,10 +17,10 @@ class CircleDrawerComponent implements OnInit {
   var seedGen = new Random();
   int lastSeed = 0;
 
-  int circleCount = 150;
+  int circleCount = 300;
   List<int> maxMins = [0, 255, 0, 255, 0, 255, 0, 255];
 
-  String strcc = '';
+  String strcc = '300';
 
   void ngOnInit() {
     canvas = querySelector("#circleDrawer");
@@ -36,13 +36,28 @@ class CircleDrawerComponent implements OnInit {
   int parseInt(String numStr, int backUp) =>
       int.parse(numStr, onError: (src) => backUp);
 
-  int _randomNum(int low, int high) => random.nextInt(high - low) + low;
+  int _randomNum(int low, int high) {
+    if (low == high) {
+      random.nextInt(2);
+      return low;
+    } else if (low > high) {
+      var temp = low;
+      low = high;
+      high = temp;
+    }
+    return random.nextInt(high - low) + low;
+  }
 
   int _argb(int alpha, int red, int green, int blue) =>
       (alpha % 0x100) * 0x1000000 +
       (red % 0x100) * 0x10000 +
       (green % 0x100) * 0x100 +
       blue % 0x100;
+
+  void updateCount(String newCircleCount) {
+    strcc = newCircleCount;
+    addCircle(seedGen.nextInt(1000000));
+  }
 
   void updateMaxMin(String possibleVal, int position) {
     maxMins[position] = parseInt(possibleVal, maxMins[position]);
@@ -51,6 +66,8 @@ class CircleDrawerComponent implements OnInit {
   }
 
   void addCircle(int seed) {
+    print(canvas.width);
+    print(canvas.height);
     random = new Random(seed);
     circleCount = int.parse(strcc, onError: (src) => null) ?? circleCount;
 
