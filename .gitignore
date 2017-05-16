@@ -28,3 +28,6 @@ doc/api/
 
 # No webstorm files.
 .idea/
+
+# No zipped archives. 
+*.zip

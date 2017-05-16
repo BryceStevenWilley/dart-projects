@@ -23,7 +23,8 @@
   margin-top: 0;
   margin-bottom: 0;
   img {
-    width: 100%;
+    width: 65vw;
+    display: block;
     height: auto;
   }
 }
@@ -47,17 +48,19 @@
   top: 200px;
 }
 
-a.hovertext {
+span.hovertext {
   position: relative;
   max-width: 90%;
   text-decoration: none !important;
   text-align: center;
 }
 
-a.hovertext:after {
+span.hovertext:after {
   content: attr(title);
   position: absolute;
-  left: 30%;
+  left: 50px;
+  min-width: 35vw;
+  max-width: 50vw;
   bottom: 20px;
   padding: 0.5em 20px;
   background: rgba(0,0,0,0.8);
@@ -69,11 +72,12 @@ a.hovertext:after {
   -o-transition: 0.5s;
   -ms-transition: 0.5s;
 }
-a.hovertext:hover:after, a.hovertext:focus:after {
+
+span.hovertext:hover:after, a.hovertext:focus:after {
   opacity: 1.0;
 }
 
-a.notitle:after {
+span.notitle:after {
   background-color: transparent;
   color: transparent;
 }

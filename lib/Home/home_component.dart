@@ -9,7 +9,6 @@ import 'package:personal_website/PicGallery/pic_gallery_component.dart';
 class HomeComponent {
   List<PicMetadata>  picList =
       [new PicMetadata("Headshot.jpg", ""),
-       new PicMetadata("family.jpg", "My signficant other and I, and our two dogs"),
        new PicMetadata("cool_in_NY.jpg", ""),
        new PicMetadata("pandora_pantry_check.jpg", "Winning 2nd place in the 2015 Owl Open Competition"),
        new PicMetadata("cool_dudes.jpg", ""),

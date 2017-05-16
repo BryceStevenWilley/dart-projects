@@ -16,6 +16,25 @@ $primary-text-color: white;
   flex: 1
 }
 
+.topline {
+  display: flex;
+  flex-direction: row;
+
+  a {
+    text-decoration: none;
+    color: $primary-text-color;
+    height: 100%;
+    width: auto;
+  }
+
+}
+
+img {
+  height: 2.5em;
+  width: auto;
+  padding-left: 10px;
+}
+
 #header {
   background-color: $primary-color;
   color: $primary-text-color;
@@ -31,26 +50,27 @@ $primary-text-color: white;
   nav {
     display: flex;
     flex-direction: row;
-  }
-  a {
-    padding: 8px 16px;
-    flex-grow: 1;
-    color: $primary-text-color;
-    text-decoration: none; // get rid of normal hyperlink stuff
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-  }
 
-  .active {
-    background-color: $primary-text-color;
-    color: $primary-color;
-  }
+    a {
+      padding: 8px 16px;
+      flex-grow: 1;
+      color: $primary-text-color;
+      text-decoration: none; // get rid of normal hyperlink stuff
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+    }
 
-  // Swaps the color of the text and the color of the background.
-  a:hover {
-    //color: $primary-color;
-    //background-color: $primary-text-color;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    .active {
+      background-color: $primary-text-color;
+      color: $primary-color;
+    }
+
+    // Swaps the color of the text and the color of the background.
+    a:hover {
+      //color: $primary-color;
+      //background-color: $primary-text-color;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
   }
   //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
