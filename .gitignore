@@ -3,6 +3,8 @@
 # Files and directories created by pub
 .buildlog
 .project
+packages
+.pub/deps/debug
 
 # Directory created by dartdoc
 doc/api/

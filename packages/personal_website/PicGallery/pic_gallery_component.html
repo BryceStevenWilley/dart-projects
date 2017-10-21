@@ -1,9 +1,0 @@
-<div class="img-gallery">
-    <button *ngIf="canGoLeft()" class="pic-button" (click)="leftClick()"><</button>
-    <p class="img-wrapper">
-        <span class="hovertext" [class.notitle]="getImageAlt().isEmpty" href="#" [title]="getImageAlt()">
-            <img [src]="getImagePath()" [alt]="getImageAlt()">
-        </span>
-    </p>
-    <button *ngIf="canGoRight()" class="pic-button" (click)="rightClick()">></button>
-</div>
