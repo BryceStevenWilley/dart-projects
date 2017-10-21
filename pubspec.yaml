@@ -6,7 +6,7 @@ environment:
 dependencies:
   cryptoutils:
   image:
-  sass: any
+  dart_sass_transformer: any
   bot: '^0.28.0'
   stagexl: '^0.13.3'
   vector_math:
@@ -16,7 +16,7 @@ dependencies:
   #material2_dart: ^0.1.0
   #angular2_material:
 transformers:
-- sass:
+- dart_sass_transformer:
     style: compact
 - angular2:
     platform_directives:
