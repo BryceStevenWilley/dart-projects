@@ -2,10 +2,7 @@
 
 # Files and directories created by pub
 .buildlog
-.packages
 .project
-.pub/
-**/packages/
 
 # Directory created by dartdoc
 doc/api/

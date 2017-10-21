@@ -1,0 +1,69 @@
+{
+  "ngDeps": null,
+  "type": {
+    "maxLinesToDraw": {
+      "class": "Identifier",
+      "name": "maxLinesToDraw",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "averagePointLocation": {
+      "class": "Identifier",
+      "name": "averagePointLocation",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TwoDVector": {
+      "class": "Identifier",
+      "name": "TwoDVector",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TwoDPoint": {
+      "class": "Identifier",
+      "name": "TwoDPoint",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "RgbColor": {
+      "class": "Identifier",
+      "name": "RgbColor",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Line": {
+      "class": "Identifier",
+      "name": "Line",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TurtleState": {
+      "class": "Identifier",
+      "name": "TurtleState",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "FractalInfo": {
+      "class": "Identifier",
+      "name": "FractalInfo",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TurtleMachine": {
+      "class": "Identifier",
+      "name": "TurtleMachine",
+      "moduleUrl": "asset:personal_website/lib/Logo/turtle.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

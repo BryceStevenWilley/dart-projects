@@ -1,0 +1,27 @@
+#icontainer { display: flex; flex-direction: column; min-height: 100vh; }
+
+#container { flex: 1; }
+
+.spacer { flex: 1; }
+
+.topline { display: flex; flex-direction: row; }
+.topline a { text-decoration: none; color: white; height: 100%; width: auto; }
+
+img { height: 2.5em; width: auto; padding-left: 10px; }
+
+#header { background-color: #1565C0; color: white; }
+#header h1 { margin: 0; padding: 10px; }
+#header nav { display: flex; flex-direction: row; }
+#header nav a { padding: 8px 16px; flex-grow: 1; color: white; text-decoration: none; -webkit-transition-duration: 0.4s; /* Safari */ transition-duration: 0.4s; }
+#header nav .active { background-color: white; color: #1565C0; }
+#header nav a:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.content { padding: 20px; }
+
+footer { background-color: #1565C0; padding: 1px 8px; color: white; font-size: 12px; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+footer p { margin: 8px; }
+footer a { color: white; }
+
+h2 { text-align: center; margin: 10px; padding: 5px; }
+
+section { text-align: center; margin: 10px; padding: 5px; }

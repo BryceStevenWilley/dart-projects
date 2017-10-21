@@ -1,0 +1,87 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "5": false
+      },
+      {
+        "1": "package:stagexl/stagexl.dart",
+        "5": false
+      },
+      {
+        "1": "package:personal_website/Logo/turtle.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "LogoComponent",
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "logo_component.dart",
+    "7": [
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:personal_website/Logo/turtle.template.dart",
+        "4": "i1"
+      }
+    ]
+  },
+  "type": {
+    "LogoComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "logo-app",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "LogoComponent",
+        "moduleUrl": "asset:personal_website/lib/Logo/logo_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h2>LOGO: Turtle Graphics</h2>\n<section>\n    <p>\n        I'm currently taking COMP 360 at Rice, and the first part of the\n        class is focused on <a href=\"https://en.wikipedia.org/wiki/Turtle_graphics\">Turtle Graphics</a>,\n        a way of generating 2D shapes\n        and fractals.\n    </p>\n\n    <p>\n        I always liked fractals in middle and high school; I'd doodle Seprenski\n        Gaskets and my papers and always try to draw super complete dragon curves.\n        I really like the simplicity of the turtle, so I decided to make\n        a demo using <a href=\"http://www.stagexl.org/\">StageXL</a> and Dart! Try out the demo below.\n    </p>\n</section>\n\n<br/>\n<div class=\"drawer\">\n<div class=\"controls\">\n    <div class=\"control\">\n        What do you want to draw?\n        <select (change)=\"updateCurve($event.target.value)\">\n            <option *ngFor=\"let f of functions.keys\" [value]=\"f\">{{f}}</option>\n        </select>\n    </div>\n\n    <div class=\"control\">\n        Length: <input class=\"count-slider\" type=\"range\" min=\"1\" max=\"750\" value=\"50\" (input)=\"updateLength($event.target.value)\">\n    </div>\n    <div class=\"control\" *ngIf=\"activeFractalMatches([mach.cCurve, mach.drawDragonX,\n            mach.dragon, mach.kochCurve, mach.bumpCurve, mach.bumpSnowflake, mach.polyGasket])\">\n        Depth: <select [ngModel]=\"currentDepth\" (ngModelChange)=\"updateDepth($event)\">\n            <option *ngFor=\"let depth of allowedDepth\" [ngValue]=\"depth\">{{depth}}</option>\n        </select>\n    </div>\n\n    <div class=\"control\" *ngIf=\"activeFractalMatches([mach.polygon, mach.star, mach.bumpCurve, mach.bumpSnowflake, mach.polyGasket])\">\n        Sides: <select [ngModel]=\"sides\" (ngModelChange)=\"updateSides($event)\">\n            <option *ngFor=\"let sideCount of allowedSides\" [ngValue]=\"sideCount\">{{sideCount}}</option>\n        </select>\n    </div>\n\n    <div class=\"control\" *ngIf=\"activeFractalMatches([mach.cCurve, mach.drawDragonX, mach.dragon])\">\n        Angle: <input class=\"count-slider\" type=\"range\" min=\"1\" max=\"180\" value=\"45\" (input)=\"updateAngle($event.target.value)\">\n    </div>\n\n    <div class=\"control\" *ngIf=\"activeFractalMatches([mach.polyGasket])\">\n        Scale: <input class=\"count-slider\" type=\"range\" min=\"0\" max=\"1.3\" step=\"0.01\" value=\".5\" (input)=\"updateScale($event.target.value)\">\n    </div>\n\n</div>\n\n  <canvas id=\"logoThing\" width=\"800\" height=\"600\"></canvas>\n</div>\n",
+        "templateUrl": "asset:personal_website/lib/Logo/logo_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:personal_website/lib/Logo/logo_component.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,1 @@
+const NaN = double.NAN;

@@ -1,0 +1,33 @@
+<div id="container">
+    <div id="header">
+        <div class="topline">
+            <h1>Bryce Willey</h1>
+            <div class="spacer"></div>
+            <a href="https://github.com/BryceStevenWilley" target="_blank">
+                <img src="github.svg">
+            </a>
+            <a href="https://www.linkedin.com/in/bryce-willey-2a867989/" target="_blank">
+                <img src="linkedin.svg">
+            </a>
+        </div>
+
+        <nav>
+            <a [routerLink]="['Home']" [class.active]="router.isRouteActive(router.generate(['Home']))">Home</a>
+            <a [routerLink]="['Circles']" [class.active]="router.isRouteActive(router.generate(['Circles']))">
+                Web App - Circles</a>
+            <a [routerLink]="['Logo']" [class.active]="router.isRouteActive(router.generate(['Logo']))">
+                Web App - Turtle Drawings</a>
+            <a [routerLink]="['OculusHackRice']" [class.active]="router.isRouteActive(router.generate(['OculusHackRice']))">
+                Oculus Rift Game</a>
+        </nav>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="spacer"></div>
+</div>
+<footer>
+    <p>Copyright Bryce Willey, 2017. See the source on
+        <a href="https://github.com/BryceStevenWilley/personal-website">Github</a>!</p>
+</footer>

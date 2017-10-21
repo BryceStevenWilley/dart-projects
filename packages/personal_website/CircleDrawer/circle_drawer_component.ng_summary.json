@@ -1,0 +1,81 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:image/image.dart",
+        "5": false
+      },
+      {
+        "1": "package:personal_website/stage_service.dart",
+        "5": false
+      },
+      {
+        "1": "package:stagexl/stagexl.dart",
+        "5": false
+      },
+      {
+        "1": "dart:html",
+        "5": false
+      },
+      {
+        "1": "dart:math",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "CircleDrawerComponent",
+        "6": [
+          "OnInit"
+        ]
+      }
+    ],
+    "6": "circle_drawer_component.dart"
+  },
+  "type": {
+    "CircleDrawerComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "circle-drawer",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "CircleDrawerComponent",
+        "moduleUrl": "asset:personal_website/lib/CircleDrawer/circle_drawer_component.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 5,
+      "inputs": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "\n<h2>Random Circles</h2>\n<section>\n    <p>\n        Just a simple first project for learning <a href=\"http://www.stagexl.org/\">StageXL</a>. Makes some good\n        background images too, my current my desktop background was made from this.\n    </p>\n</section>\n<div class=\"drawer\">\n<div class=\"controls\">\n    <!-- Note: go back to using input type=\"number\" when angular.dart/issues/1033 is solved. -->\n    <div class=\"control\"> Number of circles: {{strcc}}\n        <div class=\"count-slider\">\n            <input class=\"count-slider\" type=\"range\" min=\"0\" max=\"600\" value=\"300\"\n                   (input)=\"strcc=$event.target.value\"\n                   (change)=\"updateCount($event.target.value)\">\n        </div>\n    </div>\n    <div class=\"control\">\n        Red variance:\n        <div class=\"sliders\">\n            <input class=\"red-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"0\" (input)=\"updateMaxMin($event.target.value, 0)\">\n            <input class=\"red-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"255\" (input)=\"updateMaxMin($event.target.value, 1)\">\n        </div>\n    </div>\n    <div class=\"control\">\n        Blue variance:\n        <div class=\"sliders\">\n            <input class=\"blue-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"0\" (input)=\"updateMaxMin($event.target.value, 2)\">\n            <input class=\"blue-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"255\" (input)=\"updateMaxMin($event.target.value, 3)\">\n        </div>\n    </div>\n    <div class=\"control\">\n        Green variance:\n        <div class=\"sliders\">\n            <input class=\"green-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"0\" (input)=\"updateMaxMin($event.target.value, 4)\">\n            <input class=\"green-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"255\" (input)=\"updateMaxMin($event.target.value, 5)\">\n        </div>\n    </div>\n    <div class=\"control\">\n        Alpha (transparency) variance:\n        <div class=\"sliders\">\n            <input class=\"alpha-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"0\" (input)=\"updateMaxMin($event.target.value, 6)\">\n            <input class=\"alpha-slider\" type=\"range\" min=\"0\" max=\"255\" value=\"255\" (input)=\"updateMaxMin($event.target.value, 7)\">\n        </div>\n    </div>\n\n    <button (click)=\"download()\" class=\"control\">Download the picture</button>\n    <br/>\n</div>\n\n<canvas id=\"circleDrawer\" width=\"800\" height=\"600\"></canvas>\n</div>",
+        "templateUrl": "asset:personal_website/lib/CircleDrawer/circle_drawer_component.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:personal_website/lib/CircleDrawer/circle_drawer_component.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}
