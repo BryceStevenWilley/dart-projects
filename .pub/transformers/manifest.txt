@@ -1,2 +1,2 @@
 1.24.2
-angular2/transform/codegen,dart_sass_transformer,dart_to_js_script_rewriter,observe,smoke/src/default_transformer
+angular2,dart_sass_transformer,dart_to_js_script_rewriter

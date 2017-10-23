@@ -1,7 +1,7 @@
 <div id="container">
     <div id="header">
         <div class="topline">
-            <h1>Bryce Willey</h1>
+            <h1><a href="https://BryceStevenWilley.github.io">Bryce Willey</a></h1>
             <div class="spacer"></div>
             <a href="https://github.com/BryceStevenWilley" target="_blank">
                 <img src="github.svg">
@@ -12,13 +12,10 @@
         </div>
 
         <nav>
-            <a [routerLink]="['Home']" [class.active]="router.isRouteActive(router.generate(['Home']))">Home</a>
             <a [routerLink]="['Circles']" [class.active]="router.isRouteActive(router.generate(['Circles']))">
                 Web App - Circles</a>
             <a [routerLink]="['Logo']" [class.active]="router.isRouteActive(router.generate(['Logo']))">
                 Web App - Turtle Drawings</a>
-            <a [routerLink]="['OculusHackRice']" [class.active]="router.isRouteActive(router.generate(['OculusHackRice']))">
-                Oculus Rift Game</a>
         </nav>
     </div>
     <div class="content">
