@@ -1,5 +1,5 @@
 $primary-color: #1565C0; // Material Blue 800
-$secondary-color: #90A4AE; // Material Blue-grey 300
+$secondary-color: #eceff1; // Material Blue-grey 100
 $primary-text-color: white;
 
 #icontainer {
@@ -80,18 +80,20 @@ img {
 }
 
 footer {
-  background-color: $primary-color;
+  background-color: $secondary-color;
   padding: 1px 8px;
   //margin: 8px;
-  color: $primary-text-color;
+  //color: $primary-text-color;
   font-size: 12px;
   p {
     margin: 8px;
   }
   a {
-    color: $primary-text-color;
+    //color: $primary-text-color;
   }
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  display: flex;
+  justify-content: space-between;
 }
 
 h2 {

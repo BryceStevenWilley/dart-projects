@@ -3,19 +3,13 @@
         <div class="topline">
             <h1><a href="https://BryceStevenWilley.github.io">Bryce Willey</a></h1>
             <div class="spacer"></div>
-            <a href="https://github.com/BryceStevenWilley" target="_blank">
-                <img src="github.svg">
-            </a>
-            <a href="https://www.linkedin.com/in/bryce-willey-2a867989/" target="_blank">
-                <img src="linkedin.svg">
-            </a>
         </div>
 
         <nav>
             <a [routerLink]="['Circles']" [class.active]="router.isRouteActive(router.generate(['Circles']))">
-                Web App - Circles</a>
+                Circles</a>
             <a [routerLink]="['Logo']" [class.active]="router.isRouteActive(router.generate(['Logo']))">
-                Web App - Turtle Drawings</a>
+                Turtle Drawings</a>
         </nav>
     </div>
     <div class="content">
@@ -25,6 +19,8 @@
     <div class="spacer"></div>
 </div>
 <footer>
-    <p>Copyright Bryce Willey, 2017. See the source on
-        <a href="https://github.com/BryceStevenWilley/personal-website">Github</a>!</p>
+    <p>&copy; Bryce Willey, 2017</p> 
+    <p> <a href="mailto:bryce.steven.willey@gmail.com">bryce.steven.willey@gmail.com</a>
+        <a href="https://github.com/BryceStevenWilley/personal-website">Github</a>
+    </p>
 </footer>
