@@ -15232,7 +15232,7 @@ y=this.id.t(0,this.ry,"a",null)
 this.x2=y
 this.id.n(y,"href","http://www.stagexl.org/")
 this.y1=this.id.l(this.x2,"StageXL",null)
-this.y2=this.id.l(this.ry,". Makes some good\n        background images too, my current my desktop background was made from this.\n    ",null)
+this.y2=this.id.l(this.ry,". Makes some good\n        background images too, my current desktop background was made from this.\n    ",null)
 this.a1=this.id.l(this.r2,"\n",null)
 this.a3=this.id.l(z,"\n",null)
 y=this.id.t(0,z,"div",null)
